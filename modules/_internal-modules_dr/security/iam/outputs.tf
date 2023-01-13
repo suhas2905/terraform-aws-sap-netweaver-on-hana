@@ -16,10 +16,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#output "role_name" {
-#  value = element(concat(aws_iam_role.iam_role.*.name, [""]), 0)
-#}
+output "role_name" {
+  value = element(concat(aws_iam_role.iam_role.*.name, [""]), 0)
+}
 
-#output "role_arn" {
-#  value = element(concat(aws_iam_role.iam_role.*.arn, [""]), 0)
-#}
+output "role_arn" {
+  value = element(concat(aws_iam_role.iam_role.*.arn, [""]), 0)
+}
