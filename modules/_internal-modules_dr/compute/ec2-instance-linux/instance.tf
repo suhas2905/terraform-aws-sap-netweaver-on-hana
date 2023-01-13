@@ -26,7 +26,7 @@ resource "aws_instance" "linux-server" {
   key_name               = var.ssh_key
   ebs_optimized          = var.ebs_optimized
   source_dest_check      = var.source_dest_check
-  #iam_instance_profile   = aws_iam_instance_profile.ec2_instance_profile[0].name
+  iam_instance_profile   = aws_iam_instance_profile.ec2_instance_profile[0].name
   monitoring             = true
 
   lifecycle {
