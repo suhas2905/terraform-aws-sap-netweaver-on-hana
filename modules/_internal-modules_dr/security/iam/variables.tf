@@ -16,22 +16,22 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-variable "enabled" {
-  default = true
-}
+#variable "enabled" {
+#  default = true
+#}
 
-variable "policy_name" {
-  default = ""
-}
-variable "policy" {
-  default = ""
-}
-variable "role_name" {}
-variable "assume_role_policy" {}
+#variable "policy_name" {
+#  default = ""
+#}
+#variable "policy" {
+#  default = ""
+#}
+#variable "role_name" {}
+#variable "assume_role_policy" {}
 
-variable "aws_managed_policies" {
-  default = []
-}
+#variable "aws_managed_policies" {
+#  default = []
+#}
 
-variable "tags" {
-}
+#variable "tags" {
+#}
