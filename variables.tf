@@ -65,7 +65,17 @@ variable "customer_default_sg_id" {
   description = "(Optional) List of preexisting security groups to be attached to the instance. The required security groups are created automatically, this is just for mandatory default ones"
   default     = []
 }
+variable "customer_default_sg_id_dr" {
+  description = "(Optional) List of preexisting security groups to be attached to the instance. The required security groups are created automatically, this is just for mandatory default ones"
+  default     = []
+}
+   
 variable "customer_cidr_blocks" {
+  default     = []
+  description = "(Optional) The CIDR blocks to allow end-user connectivity from"
+  type        = list(string)
+}
+variable "customer_cidr_blocks_dr" {
   default     = []
   description = "(Optional) The CIDR blocks to allow end-user connectivity from"
   type        = list(string)
