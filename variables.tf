@@ -67,7 +67,7 @@ variable "customer_default_sg_id" {
 }
 variable "customer_default_sg_id_dr" {
   description = "(Optional) List of preexisting security groups to be attached to the instance. The required security groups are created automatically, this is just for mandatory default ones"
-  default     = []
+  default     = "sg-0dc73db0b3e1449a2	"
 }
    
 variable "customer_cidr_blocks" {
