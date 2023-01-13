@@ -84,18 +84,18 @@ locals {
   #}
 #}
 
-module "default_instance_role" {
-  source = "../_internal-modules/security/iam"
+#module "default_instance_role" {
+#  source = "../_internal-modules/security/iam"
 
-  enabled = var.default_instance_role
+#  enabled = var.default_instance_role
 
-  policy_name = local.instance_policy_name
-  policy      = data.aws_iam_policy_document.instance_policy.json
+#  policy_name = local.instance_policy_name
+#  policy      = data.aws_iam_policy_document.instance_policy.json
 
-  aws_managed_policies = ["arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM", "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore", "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"]
-  role_name            = local.instance_role_name
+#  aws_managed_policies = ["arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM", "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore", "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"]
+#  role_name            = local.instance_role_name
 
-  assume_role_policy = data.aws_iam_policy_document.instance_trust.json
+#  assume_role_policy = data.aws_iam_policy_document.instance_trust.json
 
-  tags = merge(module.tags.values)
-}
+#  tags = merge(module.tags.values)
+#}
