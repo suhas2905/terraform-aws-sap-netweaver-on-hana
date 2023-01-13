@@ -20,7 +20,7 @@ resource "aws_instance" "linux-server" {
   ami                    = var.ami
   count                  = var.enabled == true ? var.instance_count : 0
   instance_type          = var.instance_type
-  subnet_id              = flatten(var.subnet_ids)[count.index % length(var.subnet_ids)]
+  subnet_id              = aws_subnet.private_subnet[0].id
   vpc_security_group_ids = var.vpc_security_group_ids
   user_data              = var.user_data != "" ? var.user_data : templatefile("${path.module}/default-user-data.sh", {})
   key_name               = var.ssh_key
