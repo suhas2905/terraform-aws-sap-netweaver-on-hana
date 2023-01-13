@@ -16,23 +16,23 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#resource "aws_iam_role" "iam_role" {
-#  count              = var.enabled ? 1 : 0
-#  name               = var.role_name
-#  assume_role_policy = var.assume_role_policy
-#  tags               = merge(var.tags)
-#}
+resource "aws_iam_role" "iam_role" {
+  count              = var.enabled ? 1 : 0
+  name               = var.role_name
+  assume_role_policy = var.assume_role_policy
+  tags               = merge(var.tags)
+}
 
-#resource "aws_iam_role_policy_attachment" "iam_role" {
-#  count = var.enabled ? 1 : 0
-#  role  = aws_iam_role.iam_role[0].name
+resource "aws_iam_role_policy_attachment" "iam_role" {
+  count = var.enabled ? 1 : 0
+  role  = aws_iam_role.iam_role[0].name
 
-#  policy_arn = aws_iam_policy.iam_policy[0].arn
-#}
+  policy_arn = aws_iam_policy.iam_policy[0].arn
+}
 
-#resource "aws_iam_role_policy_attachment" "aws_managed_role" {
-#  count = var.enabled ? length(var.aws_managed_policies) : 0
+resource "aws_iam_role_policy_attachment" "aws_managed_role" {
+  count = var.enabled ? length(var.aws_managed_policies) : 0
 
-#  role       = aws_iam_role.iam_role[0].name
-#  policy_arn = var.aws_managed_policies[count.index]
-#}
+  role       = aws_iam_role.iam_role[0].name
+  policy_arn = var.aws_managed_policies[count.index]
+}
