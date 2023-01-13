@@ -21,68 +21,68 @@ locals {
   instance_role_name   = "${lower(var.application_code)}-${lower(var.application_name)}-sap_hana_instance_default_role-${lower(var.environment)}"
 }
 
-data "aws_iam_policy_document" "instance_trust" {
-  statement {
-    actions = ["sts:AssumeRole"]
-    principals {
-      type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
-    }
-  }
-}
+#data "aws_iam_policy_document" "instance_trust" {
+#  statement {
+#    actions = ["sts:AssumeRole"]
+#    principals {
+#      type        = "Service"
+#      identifiers = ["ec2.amazonaws.com"]
+#    }
+#  }
+#}
 
-data "aws_iam_policy_document" "instance_policy" {
+#data "aws_iam_policy_document" "instance_policy" {
   # Statement for KMS handling
-  statement {
-    actions = [
-      "kms:Encrypt",
-      "kms:Decrypt",
-      "kms:ReEncrypt*",
-      "kms:GenerateDataKey*",
-      "kms:DescribeKey"
-    ]
-    resources = [var.kms_key_arn]
-  }
-
+#  statement {
+#    actions = [
+#      "kms:Encrypt",
+#      "kms:Decrypt",
+#      "kms:ReEncrypt*",
+#      "kms:GenerateDataKey*",
+#      "kms:DescribeKey"
+#    ]
+#    resources = [var.kms_key_arn]
+#  }
+#
   # Statement 1 for Stonith when HA installations
-  statement {
-    actions = [
-      "ec2:DescribeInstances",
-      "ec2:DescribeInstanceAttribute",
-      "ec2:DescribeTags"
-    ]
-    resources = ["*"]
-  }
+#  statement {
+#    actions = [
+#      "ec2:DescribeInstances",
+#      "ec2:DescribeInstanceAttribute",
+#      "ec2:DescribeTags"
+#    ]
+#    resources = ["*"]
+#  }
 
   # Statement 2 for Stonith when HA installations
-  statement {
-    actions = [
-      "ec2:ModifyInstanceAttribute",
-      "ec2:RebootInstances",
-      "ec2:StartInstances",
-      "ec2:StopInstances"
-    ]
-    resources = ["arn:aws:ec2:*:*:instance/*"]
-  }
+ # statement {
+ #   actions = [
+ #     "ec2:ModifyInstanceAttribute",
+ #     "ec2:RebootInstances",
+ #     "ec2:StartInstances",
+ #     "ec2:StopInstances"
+ #   ]
+ #   resources = ["arn:aws:ec2:*:*:instance/*"]
+ # }
 
   # Statement 1 for Overlay IP when HA installations
-  statement {
-    actions = [
-      "ec2:ReplaceRoute",
-      "ec2:DescribeRouteTables"
-    ]
-    resources = ["arn:aws:ec2:*:*:route-table/*"]
-  }
+  #statement {
+  #  actions = [
+  #    "ec2:ReplaceRoute",
+  #    "ec2:DescribeRouteTables"
+  #  ]
+  #  resources = ["arn:aws:ec2:*:*:route-table/*"]
+  #}
 
   # Statement 2 for Overlay IP when HA installations
-  statement {
-    actions = [
-      "ec2:ReplaceRoute",
-      "ec2:DescribeRouteTables"
-    ]
-    resources = ["*"]
-  }
-}
+  #statement {
+  #  actions = [
+  #    "ec2:ReplaceRoute",
+  #    "ec2:DescribeRouteTables"
+  #  ]
+  #  resources = ["*"]
+  #}
+#}
 
 module "default_instance_role" {
   source = "../_internal-modules/security/iam"
