@@ -83,6 +83,67 @@ module "hana_host" {
   sid = var.sid
 }
 
+
+module "da_hana_host" {
+  source = "./modules/aws-da-setup"
+
+  # Instance Count depending on the environment
+  instance_count = var.hana_is_scale_out ? (var.enable_ha ? 2 * var.hana_scale_out_node_count : var.hana_scale_out_node_count) : (var.enable_ha ? 2 : 1)
+  enable_ha      = var.enable_ha
+  instance_type  = var.hana_instance_type
+
+  is_scale_out = var.hana_is_scale_out
+
+  enabled = var.enabled
+  ami_id  = var.ami_id_da
+
+  # General
+
+  # KMS Key for EBS Volumes Encryption
+  kms_key_arn = var.kms_key_arn_da
+  ssh_key     = var.ssh_key_da
+
+  # Networking
+  #vpc_id = var.vpc_id
+
+  # The list of subnets to deploy the instances
+  #subnet_ids = var.subnet_ids
+  # The Route53 private Zone name to create the host entry
+  dns_zone_name = var.dns_zone_name
+  # The CIDR block for the onPremise Network
+  customer_cidr_blocks = var.customer_cidr_blocks
+  # The default security group to be added
+  customer_default_sg_id = var.customer_default_sg_id
+  # The default security group to be added
+  efs_security_group_id = module.sap_efs.security_group_id
+  # CIDR block for the overlay IP for Hana installation when HA is enabled
+  destination_cidr_block_for_overlay_ip = var.destination_cidr_block_for_overlay_ip
+
+  # Instance Role
+  default_instance_role = var.default_instance_role
+  iam_instance_role     = var.default_instance_role ? "" : var.iam_instance_role
+
+  # Tags
+  application_code = lower(var.application_code)
+  environment      = lower(var.environment_type)
+  application_name = lower(var.application_name)
+
+  # SAP
+  sid = var.sid
+  
+  # Landing_zone
+  vpc_cidr                  = var.vpc_cidr_da
+  subnets_cidr              = var.subnets_cidr_da
+  public_subnets_cidr       = var.public_subnets_cidr_da
+  availability_zones        = var.availability_zones_da
+
+  providers = {
+    aws = aws.us-east-2
+  }
+
+}
+
+
 module "sap_ascs_host" {
   source  = "./modules/aws-sap-ascs-host"
   enabled = var.enabled
