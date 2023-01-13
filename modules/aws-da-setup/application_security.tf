@@ -59,7 +59,7 @@ resource "aws_security_group_rule" "sap_application_tcp50013-50015_in" {
   from_port         = "50013"
   to_port           = "50015"
   protocol          = "tcp"
-  cidr_blocks       = concat(var.vpc_cidr], var.customer_cidr_blocks_dr)
+  cidr_blocks       = concat(var.vpc_cidr, var.customer_cidr_blocks_dr)
 }
 
 resource "aws_security_group_rule" "sap_application_tcp30013-30015_in" {
