@@ -37,7 +37,7 @@ resource "aws_security_group_rule" "sap_application_https_in" {
   from_port   = "443"
   to_port     = "443"
   protocol    = "tcp"
-  cidr_blocks = concat(var.vpc_cidr, var.customer_cidr_blocks_dr)
+  cidr_blocks = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
 }
 
 resource "aws_security_group_rule" "sap_application_tcp1128-1129_in" {
@@ -48,7 +48,7 @@ resource "aws_security_group_rule" "sap_application_tcp1128-1129_in" {
   from_port         = "1128"
   to_port           = "1129"
   protocol          = "tcp"
-  cidr_blocks       = concat(var.vpc_cidr, var.customer_cidr_blocks_dr)
+  cidr_blocks       = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
 }
 
 resource "aws_security_group_rule" "sap_application_tcp50013-50015_in" {
@@ -59,7 +59,7 @@ resource "aws_security_group_rule" "sap_application_tcp50013-50015_in" {
   from_port         = "50013"
   to_port           = "50015"
   protocol          = "tcp"
-  cidr_blocks       = concat(var.vpc_cidr, var.customer_cidr_blocks_dr)
+  cidr_blocks       = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
 }
 
 resource "aws_security_group_rule" "sap_application_tcp30013-30015_in" {
@@ -70,7 +70,7 @@ resource "aws_security_group_rule" "sap_application_tcp30013-30015_in" {
   from_port         = "30013"
   to_port           = "30015"
   protocol          = "tcp"
-  cidr_blocks       = concat(var.vpc_cidr, var.customer_cidr_blocks_dr)
+  cidr_blocks       = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
 }
 
 resource "aws_security_group_rule" "sap_application_tcp2049_in" {
@@ -90,7 +90,7 @@ resource "aws_security_group_rule" "sap_application_30001_in" {
   from_port         = "30001"
   to_port           = "30102"
   protocol          = "tcp"
-  cidr_blocks       = concat(var.vpc_cidr, var.customer_cidr_blocks_dr)
+  cidr_blocks       = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
 }
 
 resource "aws_security_group_rule" "sap_application_40002_in" {
@@ -100,7 +100,7 @@ resource "aws_security_group_rule" "sap_application_40002_in" {
   from_port         = "40002"
   to_port           = "40102"
   protocol          = "tcp"
-  cidr_blocks       = concat(var.vpc_cidr, var.customer_cidr_blocks_dr)
+  cidr_blocks       = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
 }
 
 resource "aws_security_group_rule" "pacemaker_port" {
@@ -110,7 +110,7 @@ resource "aws_security_group_rule" "pacemaker_port" {
   from_port         = "2224"
   to_port           = "2224"
   protocol          = "tcp"
-  cidr_blocks       = concat(var.vpc_cidr, var.customer_cidr_blocks_dr)
+  cidr_blocks       = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
 }
 
 resource "aws_security_group_rule" "all_traffic_between_hana" {
