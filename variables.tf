@@ -90,6 +90,7 @@ variable "ami_id" {
 }
 variable "ami_id_da" {
   description = "(Required) The AMI id for the underlying OS"
+  default     = "ami-05b28f0a03737eaf7"
   type        = string
 }
 
@@ -100,7 +101,7 @@ variable "ssh_key" {
 }
 variable "ssh_key_da" {
   description = "(Optional) The key pair name for the instances. If not provided - you can use SSM session manager for console access"
-  default     = ""
+  default     = "sap-us-east-2"
   type        = string
 }
 
@@ -116,7 +117,7 @@ variable "kms_key_arn" {
   type    = string
 }
 variable "kms_key_arn_da" {
-  default = ""
+  default = "arn:aws:kms:us-east-2:050945387173:key/3a36acac-47c4-4ae2-8f5d-d91ec6c08afb"
   type    = string
 }
 
