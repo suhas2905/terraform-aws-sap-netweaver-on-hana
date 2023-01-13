@@ -88,11 +88,22 @@ variable "ami_id" {
   description = "(Required) The AMI id for the underlying OS"
   type        = string
 }
+variable "ami_id_da" {
+  description = "(Required) The AMI id for the underlying OS"
+  type        = string
+}
+
 variable "ssh_key" {
   description = "(Optional) The key pair name for the instances. If not provided - you can use SSM session manager for console access"
   default     = ""
   type        = string
 }
+variable "ssh_key_da" {
+  description = "(Optional) The key pair name for the instances. If not provided - you can use SSM session manager for console access"
+  default     = ""
+  type        = string
+}
+
 variable "user_data" {
   description = "(Optional) The user data script for the instance. If none provisioned - default one will be used to install AWS CLI and SSM agent"
   default     = ""
@@ -104,6 +115,11 @@ variable "kms_key_arn" {
   default = ""
   type    = string
 }
+variable "kms_key_arn_da" {
+  default = ""
+  type    = string
+}
+
 variable "default_instance_role" {
   description = "(Optional) Flag to define whether default instance role should be created"
   default     = true
@@ -227,4 +243,21 @@ variable "app_server_root_volume_size" {
   default     = 50
   description = "(Optional) Size in GBs for the root volumes of the instances"
   type        = number
+}
+
+###Landing_zone
+variable "vpc_cidr_da" {
+    default = "10.0.0.0/16"  #CIDR declaration for VPC
+}
+variable "subnets_cidr_da" {
+    type = list
+    default = ["10.0.1.0/24" , "10.0.2.0/24"] #CIDR declaration for 2 subnets 
+}
+variable "public_subnets_cidr_da" {
+    type = list
+    default = ["10.0.3.0/24" , "10.0.4.0/24"] #CIDR declaration for 2 subnets 
+}
+variable "availability_zones_da" {
+    type = list
+    default = ["us-east-2a" , "us-east-2b"]   #defining AZs for Subnets
 }
