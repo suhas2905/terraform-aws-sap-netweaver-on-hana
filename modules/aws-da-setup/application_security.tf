@@ -80,7 +80,10 @@ resource "aws_security_group_rule" "sap_application_tcp2049_in" {
   from_port                = "2049"
   to_port                  = "2049"
   protocol                 = "tcp"
-  #source_security_group_id = var.efs_security_group_id != "" ? var.efs_security_group_id : aws_security_group.sap_application.*.id[0]
+  source_security_group_id = var.efs_security_group_id != "" ? var.efs_security_group_id : aws_security_group.sap_application.*.id[0]
+  depends_on = [
+    aws_security_group.efs
+  ]
 }
 
 resource "aws_security_group_rule" "sap_application_30001_in" {
