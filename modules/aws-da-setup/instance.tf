@@ -45,7 +45,7 @@ module "instance" {
   source_dest_check = var.enable_ha ? false : true
 
   subnet_ids             = aws_subnet.private_subnet[0].id
-  vpc_security_group_ids = [aws_security_group.instance.*.id[0], aws_security_group.sap_application.*.id[0], var.customer_default_sg_id]
+  vpc_security_group_ids = [aws_security_group.instance.*.id[0], aws_security_group.sap_application.*.id[0]]
   iam_role               = var.default_instance_role ? module.default_instance_role.role_name : var.iam_instance_role
   user_data              = var.user_data
   hostnames              = local.hostnames
