@@ -17,8 +17,8 @@
  */
 
 # EC2 Instance Profile
-resource "aws_iam_instance_profile" "ec2_instance_profile" {
-  count = var.enabled ? 1 : 0
-  name  = "${var.tags["ApplicationName"]}-${var.tags["ApplicationComponent"]}_ec2-instance-profile"
-  role  = var.iam_role
-}
+#resource "aws_iam_instance_profile" "ec2_instance_profile" {
+#  count = var.enabled ? 1 : 0
+ # name  = "${var.tags["ApplicationName"]}-${var.tags["ApplicationComponent"]}_ec2-instance-profile"
+#  role  = var.iam_role
+#}
