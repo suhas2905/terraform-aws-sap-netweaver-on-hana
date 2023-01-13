@@ -29,7 +29,7 @@ resource "null_resource" "hostnames_list" {
 }
 
 module "instance" {
-  source = "../_internal-modules/compute/ec2-instance-linux"
+  source = "../_internal-modules_dr/compute/ec2-instance-linux"
 
   enabled        = var.enabled
   instance_count = var.enabled ? var.instance_count : 0
