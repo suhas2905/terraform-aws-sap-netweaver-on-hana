@@ -16,10 +16,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-resource "aws_iam_policy" "iam_policy" {
-  count = var.enabled ? 1 : 0
+#resource "aws_iam_policy" "iam_policy" {
+#  count = var.enabled ? 1 : 0
 
-  name = var.policy_name
+#  name = var.policy_name
   #  path   = "/${var.tags["application_code"]}/"
-  policy = var.policy
-}
+#  policy = var.policy
+#}
