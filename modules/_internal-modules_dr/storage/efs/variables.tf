@@ -29,7 +29,7 @@ variable "subnet_ids" {
 
 variable "name" {}
 
-variable "efs_security_group_id" {}
+variable "efs_security_group_id_dr" {}
 
 variable "efs_file_system_id" {}
 
