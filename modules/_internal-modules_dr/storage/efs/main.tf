@@ -24,12 +24,12 @@ resource "aws_efs_file_system" "main" {
 }
 
 resource "aws_efs_mount_target" "main" {
-  count = var.enabled ? length(var.subnet_ids) : 0
+  count = var.enabled ? 1 : 0
 
   file_system_id = var.enabled ? aws_efs_file_system.main.*.id[0] : var.efs_file_system_id
-  subnet_id      = var.subnet_ids[count.index]
+  subnet_id      = var.subnet_ids
 
   security_groups = [
-    var.efs_security_group_id,
+    var.efs_security_group_id_dr,
   ]
 }
