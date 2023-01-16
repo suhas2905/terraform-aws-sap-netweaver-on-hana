@@ -22,14 +22,14 @@ variable "enabled" {
 
 variable "aws_region" {}
 
-#variable "vpc_id" {}
+variable "vpc_id" {}
 
 variable "subnet_ids" {
 }
 
 variable "name" {}
 
-variable "efs_security_group_id_dr" {}
+variable "efs_security_group_id" {}
 
 variable "efs_file_system_id" {}
 
