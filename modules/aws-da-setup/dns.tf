@@ -25,6 +25,6 @@ module "a_records" {
   zone_name    = var.dns_zone_name
   record_type  = "A"
   record_ttl   = "300"
-  record_names = local.hostnames
+  record_names = local.hostnames_dr
   records      = module.instance.private_ip
 }
