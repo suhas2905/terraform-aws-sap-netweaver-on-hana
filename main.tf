@@ -113,7 +113,7 @@ module "da_hana_host" {
   # The CIDR block for the onPremise Network
   customer_cidr_blocks_dr = var.customer_cidr_blocks_dr
   # The default security group to be added
-  customer_default_sg_id_dr = var.customer_default_sg_id_dr
+  #customer_default_sg_id_dr = var.customer_default_sg_id_dr
   # The default security group to be added
   efs_security_group_id = module.sap_efs.security_group_id
   # CIDR block for the overlay IP for Hana installation when HA is enabled
