@@ -18,7 +18,7 @@
 
 variable "zone_id" {}
 
-variable "record_names_dr" {
+variable "record_names" {
 }
 
 variable "record_type" {}
