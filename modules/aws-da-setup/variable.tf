@@ -91,6 +91,12 @@ variable "efs_security_group_id" {
   default     = ""
 }
 
+variable "efs_security_group_id_dr" {
+  type        = string
+  description = "(Optional) The security group for EFS file system to allow the mount. Required if EFS is used for /sapmnt"
+  default     = ""
+}
+
 # OS Parameters
 variable "ami_id" {
   description = "(Required) The AMI id for the underlying OS"
