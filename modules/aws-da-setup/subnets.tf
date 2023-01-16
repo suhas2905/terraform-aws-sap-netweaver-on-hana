@@ -1,3 +1,4 @@
+module "subnets" {
 resource "aws_subnet" "private_subnet" {
     count                   = length(var.subnets_cidr) 
     vpc_id                  = aws_vpc.SAP_VPC[0].id
@@ -24,4 +25,5 @@ resource "aws_subnet" "public_subnet" {
 
         Name = "Public-Subnet-${count.index + 1}"
     }
+}
 }
