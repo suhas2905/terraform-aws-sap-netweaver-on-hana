@@ -65,7 +65,8 @@ variable "enable_ha" {
 #}
 
 variable "subnet_ids" {
-  description = "aws_subnet.private_subnet[0].id"
+  default     = "aws_subnet.private_subnet[0].id"
+  description = "(Required) List of subnets for instance distribution"
 }
 
 variable "dns_zone_name" {
