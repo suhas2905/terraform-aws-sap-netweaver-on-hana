@@ -30,6 +30,6 @@ resource "aws_efs_mount_target" "main" {
   subnet_id      = var.subnet_ids
 
   security_groups = [
-    var.efs_security_group_id_dr,
+    var.efs_security_group_id,
   ]
 }
