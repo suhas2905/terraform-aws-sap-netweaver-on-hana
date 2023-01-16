@@ -64,9 +64,10 @@ variable "enable_ha" {
 #  description = "(Required) VPC to deploy HANA infrastructure to"
 #}
 
-#variable "subnet_ids" {
-#  description = "(Required) List of subnets for instance distribution"
-#}
+variable "subnet_ids" {
+  description = "aws_subnet.private_subnet[0].id"
+}
+
 variable "dns_zone_name" {
   default     = ""
   description = "(Optional) The name of Route53 Private DNS zone. If not provided - DNS record will not be created"
