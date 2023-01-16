@@ -73,10 +73,10 @@ variable "dns_zone_name" {
   default     = ""
   description = "(Optional) The name of Route53 Private DNS zone. If not provided - DNS record will not be created"
 }
-#variable "customer_default_sg_id_dr" {
-#  default     = []
-#  description = "(Optional) List of preexisting security groups to be attached to the instance. The required security groups are created automatically, this is just for mandatory default ones"
-#}
+variable "customer_default_sg_id_dr" {
+  default     = []
+  description = "(Optional) List of preexisting security groups to be attached to the instance. The required security groups are created automatically, this is just for mandatory default ones"
+}
 variable "customer_cidr_blocks_dr" {
   default     = ""
   description = "(Optional) The CIDR blocks to allow end-user connectivity from"
