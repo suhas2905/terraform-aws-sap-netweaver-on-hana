@@ -17,7 +17,7 @@
  */
 
 module "a_records" {
-  source = "../_internal-modules/compute/dns-records"
+  source = "../_internal-modules_dr/compute/dns-records"
 
   enabled = var.enabled ? (var.dns_zone_name != "") : false
 
