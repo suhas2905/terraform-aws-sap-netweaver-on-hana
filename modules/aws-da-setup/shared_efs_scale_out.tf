@@ -51,7 +51,7 @@ resource "aws_security_group_rule" "efs_egress" {
 }
 
 module "sap_hana_scale_out_efs" {
-  source = "../_internal-modules/storage/efs"
+  source = "../_internal-modules_dr/storage/efs"
 
   enabled     = var.enabled ? var.is_scale_out : false
   kms_key_arn = var.kms_key_arn
