@@ -16,52 +16,52 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-resource "aws_security_group" "efs" {
-  count = var.enabled ? (var.is_scale_out ? 1 : 0) : 0
+#resource "aws_security_group" "efs" {
+#  count = var.enabled ? (var.is_scale_out ? 1 : 0) : 0
 
-  name        = "${module.tags.values["Name"]}-hana-efs-sg"
-  description = "Allows NFS traffic from instances within the VPC"
-  vpc_id      = aws_vpc.SAP_VPC[0].id
+#  name        = "${module.tags.values["Name"]}-hana-efs-sg"
+#  description = "Allows NFS traffic from instances within the VPC"
+#  vpc_id      = aws_vpc.SAP_VPC[0].id
 
-  lifecycle {
-    ignore_changes        = [description]
-    create_before_destroy = true
-  }
-}
+#  lifecycle {
+#    ignore_changes        = [description]
+#    create_before_destroy = true
+#  }
+#}
 
 
-resource "aws_security_group_rule" "efs_ingress" {
-  count                    = var.enabled ? (var.is_scale_out ? 1 : 0) : 0
-  security_group_id        = aws_security_group.efs[0].id
-  type                     = "ingress"
-  from_port                = "2049"
-  to_port                  = "2049"
-  protocol                 = "tcp"
-  source_security_group_id = length(aws_security_group.sap_application) > 0 ? aws_security_group.sap_application[0].id : ""
-}
+#resource "aws_security_group_rule" "efs_ingress" {
+#  count                    = var.enabled ? (var.is_scale_out ? 1 : 0) : 0
+#  security_group_id        = aws_security_group.efs[0].id
+#  type                     = "ingress"
+#  from_port                = "2049"
+#  to_port                  = "2049"
+#  protocol                 = "tcp"
+#  source_security_group_id = length(aws_security_group.sap_application) > 0 ? aws_security_group.sap_application[0].id : ""
+#}
 
-resource "aws_security_group_rule" "efs_egress" {
-  count                    = var.enabled ? (var.is_scale_out ? 1 : 0) : 0
-  security_group_id        = aws_security_group.efs[0].id
-  type                     = "egress"
-  from_port                = "2049"
-  to_port                  = "2049"
-  protocol                 = "tcp"
-  source_security_group_id = length(aws_security_group.sap_application) > 0 ? aws_security_group.sap_application[0].id : ""
-}
+#resource "aws_security_group_rule" "efs_egress" {
+#  count                    = var.enabled ? (var.is_scale_out ? 1 : 0) : 0
+#  security_group_id        = aws_security_group.efs[0].id
+#  type                     = "egress"
+ # from_port                = "2049"
+ # to_port                  = "2049"
+ # protocol                 = "tcp"
+ # source_security_group_id = length(aws_security_group.sap_application) > 0 ? aws_security_group.sap_application[0].id : ""
+#}
 
-module "sap_hana_scale_out_efs" {
-  source = "../_internal-modules_dr/storage/efs"
+#module "sap_hana_scale_out_efs" {
+#  source = "../_internal-modules_dr/storage/efs"
 
-  enabled     = var.enabled ? var.is_scale_out : false
-  kms_key_arn = var.kms_key_arn
-  aws_region  = data.aws_region.current
-  subnet_ids  = aws_subnet.private_subnet[0].id
-  vpc_id      = aws_vpc.SAP_VPC[0].id
-  name        = "${module.tags.values["Name"]}-hana-efs"
+ # enabled     = var.enabled ? var.is_scale_out : false
+ # kms_key_arn = var.kms_key_arn
+ # aws_region  = data.aws_region.current
+ # subnet_ids  = aws_subnet.private_subnet[0].id
+ # vpc_id      = aws_vpc.SAP_VPC[0].id
+ # name        = "${module.tags.values["Name"]}-hana-efs"
 
-  efs_file_system_id    = ""
-  efs_security_group_id = length(aws_security_group.efs) > 0 ? aws_security_group.efs[0].id : ""
+  #efs_file_system_id    = ""
+  #efs_security_group_id = length(aws_security_group.efs) > 0 ? aws_security_group.efs[0].id : ""
 
-  tags = module.tags.values
-}
+  #tags = module.tags.values
+#}
