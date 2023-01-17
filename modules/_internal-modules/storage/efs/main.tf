@@ -38,6 +38,6 @@ resource "aws_efs_replication_configuration" "main" {
   source_file_system_id = aws_efs_file_system.main.*.id[0]
 
   destination {
-    region = "us-west-2"
+    region = "us-east-2"
   }
 }
