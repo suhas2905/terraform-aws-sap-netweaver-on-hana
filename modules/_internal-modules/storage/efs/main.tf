@@ -34,7 +34,8 @@ resource "aws_efs_mount_target" "main" {
   ]
 }
 resource "aws_efs_replication_configuration" "main" {
-  source_file_system_id = aws_efs_file_system.main[0].id
+  count      = var.enabled ? 1 : 0
+  source_file_system_id = aws_efs_file_system.main.*.id[0]
 
   destination {
     region = "us-west-2"
