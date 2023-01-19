@@ -20,6 +20,9 @@
 variable "aws_region" {
   description = "(Required) AWS Region to execute deployment to"
 }
+variable "aws_region_dr" {
+  description = "(Required) AWS 2nd(DR) Region to execute deployment to"
+}
 variable "aws_access_key" {
   description = "(Required) AWS Access key for your account"
 }
@@ -80,6 +83,10 @@ variable "destination_cidr_block_for_overlay_ip" {
   default     = "192.168.10.10/32"
   description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
 }
+variable "destination_cidr_block_for_overlay_ip_DR" {
+  default     = "192.168.10.13/32"
+  description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
+}
 variable "destination_cidr_block_for_overlay_ip_ASCS" {
   default     = "192.168.10.11/32"
   description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
@@ -96,7 +103,7 @@ variable "ami_id" {
 }
 variable "ami_id_da" {
   description = "(Required) The AMI id for the underlying OS"
-  default     = "ami-05b28f0a03737eaf7"
+  default     = ""
   type        = string
 }
 
@@ -107,7 +114,7 @@ variable "ssh_key" {
 }
 variable "ssh_key_da" {
   description = "(Optional) The key pair name for the instances. If not provided - you can use SSM session manager for console access"
-  default     = "sap-us-east-2"
+  default     = ""
   type        = string
 }
 
@@ -123,7 +130,7 @@ variable "kms_key_arn" {
   type    = string
 }
 variable "kms_key_arn_da" {
-  default = "arn:aws:kms:us-east-2:050945387173:key/3a36acac-47c4-4ae2-8f5d-d91ec6c08afb"
+  default = ""
   type    = string
 }
 
