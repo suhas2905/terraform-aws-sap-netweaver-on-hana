@@ -83,7 +83,7 @@ variable "destination_cidr_block_for_overlay_ip" {
   default     = "192.168.10.10/32"
   description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
 }
-variable "destination_cidr_block_for_overlay_ip_DR" {
+variable "destination_cidr_block_for_overlay_ip_dr" {
   default     = "192.168.10.13/32"
   description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
 }
@@ -101,7 +101,7 @@ variable "ami_id" {
   description = "(Required) The AMI id for the underlying OS"
   type        = string
 }
-variable "ami_id_da" {
+variable "ami_id_dr" {
   description = "(Required) The AMI id for the underlying OS"
   default     = ""
   type        = string
@@ -112,7 +112,7 @@ variable "ssh_key" {
   default     = ""
   type        = string
 }
-variable "ssh_key_da" {
+variable "ssh_key_dr" {
   description = "(Optional) The key pair name for the instances. If not provided - you can use SSM session manager for console access"
   default     = ""
   type        = string
@@ -129,7 +129,7 @@ variable "kms_key_arn" {
   default = ""
   type    = string
 }
-variable "kms_key_arn_da" {
+variable "kms_key_arn_dr" {
   default = ""
   type    = string
 }
@@ -260,18 +260,18 @@ variable "app_server_root_volume_size" {
 }
 
 ###Landing_zone
-variable "vpc_cidr_da" {
+variable "vpc_cidr_dr" {
     default = "10.0.0.0/16"  #CIDR declaration for VPC
 }
-variable "subnets_cidr_da" {
+variable "subnets_cidr_dr" {
     type = list
     default = ["10.0.1.0/24" , "10.0.2.0/24"] #CIDR declaration for 2 subnets 
 }
-variable "public_subnets_cidr_da" {
+variable "public_subnets_cidr_dr" {
     type = list
     default = ["10.0.3.0/24" , "10.0.4.0/24"] #CIDR declaration for 2 subnets 
 }
-variable "availability_zones_da" {
+variable "availability_zones_dr" {
     type = list
     default = ["us-east-2a" , "us-east-2b"]   #defining AZs for Subnets
 }
