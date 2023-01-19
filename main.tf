@@ -95,13 +95,13 @@ module "da_hana_host" {
   is_scale_out = var.hana_is_scale_out
 
   enabled = var.enabled
-  ami_id  = var.ami_id_da
+  ami_id  = var.ami_id_dr
 
   # General
 
   # KMS Key for EBS Volumes Encryption
-  kms_key_arn = var.kms_key_arn_da
-  ssh_key     = var.ssh_key_da
+  kms_key_arn = var.kms_key_arn_dr
+  ssh_key     = var.ssh_key_dr
 
   # Networking
   #vpc_id = var.vpc_id
@@ -117,7 +117,7 @@ module "da_hana_host" {
   # The default security group to be added
   efs_security_group_id = module.sap_efs.security_group_id
   # CIDR block for the overlay IP for Hana installation when HA is enabled
-  destination_cidr_block_for_overlay_ip = var.destination_cidr_block_for_overlay_ip
+  destination_cidr_block_for_overlay_ip = var.destination_cidr_block_for_overlay_ip_dr
 
   # Instance Role
   default_instance_role = var.default_instance_role
@@ -132,10 +132,10 @@ module "da_hana_host" {
   sid = var.sid
   
   # Landing_zone
-  vpc_cidr                  = var.vpc_cidr_da
-  subnets_cidr              = var.subnets_cidr_da
-  public_subnets_cidr       = var.public_subnets_cidr_da
-  availability_zones        = var.availability_zones_da
+  vpc_cidr                  = var.vpc_cidr_dr
+  subnets_cidr              = var.subnets_cidr_dr
+  public_subnets_cidr       = var.public_subnets_cidr_dr
+  availability_zones        = var.availability_zones_dr
 
   providers = {
     aws = aws.us-east-2
