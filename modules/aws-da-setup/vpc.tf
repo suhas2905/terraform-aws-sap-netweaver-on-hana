@@ -1,5 +1,5 @@
 resource "aws_vpc_peering_connection" "my_pc_1" {
-  peer_vpc_id   = vpc-06f03236fc405308b
+  peer_vpc_id   = var.vpc_id
   vpc_id        = aws_vpc.SAP_VPC[0].id
   peer_region   = "us-east-2"
 }
