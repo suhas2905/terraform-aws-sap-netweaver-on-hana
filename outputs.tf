@@ -24,6 +24,10 @@ output "hana_instance_private_ip" {
   value = module.hana_host.server_private_ip
 }
 
+output "hana_instance_dr_private_ip" {
+  value = module.da_hana_host.server_private_ip_dr
+}
+
 output "ascs_overlay_ip_route_table_id" {
   value = module.sap_ascs_host.overlay_route_table_id
 }
@@ -40,6 +44,10 @@ output "hana_instance_overlay_ip" {
   value = module.hana_host.overlay_ip
 }
 
+output "hana_instance_dr_overlay_ip" {
+  value = module.da_hana_host.overlay_ip_dr
+}
+
 output "ascs_instance_overlay_ip" {
   value = module.sap_ascs_host.overlay_ip_ASCS
 }
@@ -50,6 +58,10 @@ output "ers_instance_overlay_ip" {
 
 output "hana_overlay_ip_route_table_id" {
   value = module.hana_host.overlay_route_table_id
+}
+
+output "hana_dr_overlay_ip_route_table_id" {
+  value = module.da_hana_host.overlay_route_table_id_dr
 }
 
 output "app_instance_public_ips" {
