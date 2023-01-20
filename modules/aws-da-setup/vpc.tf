@@ -1,3 +1,8 @@
+resource "aws_vpc_peering_connection" "my_pc_1" {
+  peer_vpc_id   = vpc-06f03236fc405308b
+  vpc_id        = aws_vpc.SAP_VPC[0].id
+  peer_region   = "us-east-2"
+}
 resource "aws_vpc" "SAP_VPC" {
     count                = 1
     cidr_block           = var.vpc_cidr
