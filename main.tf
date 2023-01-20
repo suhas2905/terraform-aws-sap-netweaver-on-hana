@@ -104,7 +104,7 @@ module "da_hana_host" {
   ssh_key     = var.ssh_key_dr
 
   # Networking
-  #vpc_id = var.vpc_id
+  vpc_id = var.vpc_id
 
   # The list of subnets to deploy the instances
   #subnet_ids = var.subnet_ids
