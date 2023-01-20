@@ -60,9 +60,9 @@ variable "enable_ha" {
 }
 
 # Networking Variables
-#variable "vpc_id" {
-#  description = "(Required) VPC to deploy HANA infrastructure to"
-#}
+variable "vpc_id" {
+  description = "(Required) VPC to deploy HANA infrastructure to"
+}
 
 variable "subnet_ids" {
   default     = "aws_subnet.private_subnet[0].id"
