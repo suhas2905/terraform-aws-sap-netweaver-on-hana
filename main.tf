@@ -142,7 +142,13 @@ module "da_hana_host" {
   }
 
 }
-
+resource "aws_vpc_peering_connection_accepter" "peer_accepter" {
+  vpc_peering_connection_id = module.aws-da-setup.my_pc_1
+  auto_accept               = true
+  tags = {
+        Name = "my_pc_1_accepter"
+    }
+}
 
 module "sap_ascs_host" {
   source  = "./modules/aws-sap-ascs-host"
