@@ -58,7 +58,7 @@ variable "vpc_id" {
 
 variable "vpc_cidr_Region1" {
   description = "(Required) To create route for the peering connection
-  default     = "	10.200.0.0/16"
+  default     = "10.200.0.0/16"
   type        = string
 }
 variable "subnet_ids" {
