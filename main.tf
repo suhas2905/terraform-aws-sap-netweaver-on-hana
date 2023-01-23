@@ -105,7 +105,7 @@ module "da_hana_host" {
 
   # Networking
   vpc_id = var.vpc_id
-
+  vpc_cidr_Region1 = var.vpc_cidr_Region1
   # The list of subnets to deploy the instances
   #subnet_ids = var.subnet_ids
   # The Route53 private Zone name to create the host entry
