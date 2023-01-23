@@ -69,7 +69,7 @@ module "hana_host" {
   efs_security_group_id = module.sap_efs.security_group_id
   # CIDR block for the overlay IP for Hana installation when HA is enabled
   destination_cidr_block_for_overlay_ip = var.destination_cidr_block_for_overlay_ip
-
+  vpc_peering_connection_id = modules.da_hana_host.my_pc_1
   # Instance Role
   default_instance_role = var.default_instance_role
   iam_instance_role     = var.default_instance_role ? "" : var.iam_instance_role
@@ -118,7 +118,7 @@ module "da_hana_host" {
   efs_security_group_id = module.sap_efs.security_group_id
   # CIDR block for the overlay IP for Hana installation when HA is enabled
   destination_cidr_block_for_overlay_ip = var.destination_cidr_block_for_overlay_ip_dr
-
+  
   # Instance Role
   default_instance_role = var.default_instance_role
   iam_instance_role     = var.default_instance_role ? "" : var.iam_instance_role
