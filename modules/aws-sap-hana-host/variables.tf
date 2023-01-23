@@ -71,10 +71,12 @@ variable "vpc_id" {
 variable "vpc_cidr_dr" {
   description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
 }
-
-
 variable "subnet_ids" {
   description = "(Required) List of subnets for instance distribution"
+}
+
+variable "vpc_peering_connection_id" {
+  description = "(Required) "
 }
 variable "dns_zone_name" {
   default     = ""
