@@ -1,6 +1,7 @@
 variable "vpc_cidr" {
 }
-
+variable "vpc_cidr_Region1" {
+}
 variable "subnets_cidr" {
 }
 
