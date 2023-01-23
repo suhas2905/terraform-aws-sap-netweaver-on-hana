@@ -20,10 +20,6 @@ data "aws_route_table" "ha_route_table" {
   #vpc_id = data.aws_vpc.vpc.id
   subnet_id = element(var.subnet_ids, 0)
 }
-data "aws_route_table" "ha_route_table_1" {
-  #vpc_id = data.aws_vpc.vpc.id
-  subnet_id = element(var.subnet_ids, 2)
-}
 
 resource "aws_route" "ha_route" {
   count = var.enable_ha ? 1 : 0
@@ -42,7 +38,7 @@ resource "aws_route" "ha_route_1" {
 resource "aws_route" "ha_route_2" {
   count = 1
 
-  route_table_id         = data.aws_route_table.ha_route_table_1.id
+  route_table_id         = rtb-0acd2d1e8850b3ba7
   destination_cidr_block = var.vpc_cidr_dr
   vpc_peering_connection_id = var.vpc_peering_connection_id
 }
