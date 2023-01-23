@@ -68,7 +68,7 @@ variable "enable_ha" {
 variable "vpc_id" {
   description = "(Required) VPC to deploy HANA infrastructure to"
 }
-variable "vpc_cidr_region" {
+variable "vpc_cidr_dr" {
   description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
 }
 
