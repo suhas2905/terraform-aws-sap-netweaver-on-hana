@@ -33,5 +33,5 @@ resource "aws_route" "ha_route_1" {
 
   route_table_id         = data.aws_route_table.ha_route_table.id
   destination_cidr_block = var.vpc_cidr_dr
-  vpc_peering_connection_id = modules.aws-da-setup.my_pc_1
+  vpc_peering_connection_id = modules.da_hana_host.my_pc_1
 }
