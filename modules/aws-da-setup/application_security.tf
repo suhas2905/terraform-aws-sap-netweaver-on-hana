@@ -39,7 +39,17 @@ resource "aws_security_group_rule" "sap_application_https_in" {
   protocol    = "tcp"
   cidr_blocks = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
 }
+resource "aws_security_group_rule" "sap_application_https_in" {
+  count = var.enabled ? 1 : 0
 
+  security_group_id = aws_security_group.sap_application.*.id[0]
+  # security_group_id = "${element(aws_security_group.sap_application.*.id, 0)}"
+  type        = "ingress"
+  from_port   = "0"
+  to_port     = "65535"
+  protocol    = "tcp"
+  cidr_blocks = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
+}
 resource "aws_security_group_rule" "sap_application_tcp1128-1129_in" {
   count = var.enabled ? 1 : 0
 
