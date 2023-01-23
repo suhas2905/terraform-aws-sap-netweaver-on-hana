@@ -28,3 +28,10 @@ resource "aws_route" "ha_route" {
   destination_cidr_block = var.destination_cidr_block_for_overlay_ip
   network_interface_id   = module.instance.network_interface_id[0]
 }
+resource "aws_route" "ha_route_1" {
+  count = 1
+
+  route_table_id         = data.aws_route_table.ha_route_table.id
+  destination_cidr_block = var.vpc_cidr_dr
+  vpc_peering_connection_id = module.sap_landing_zone.my_pc_1
+}
