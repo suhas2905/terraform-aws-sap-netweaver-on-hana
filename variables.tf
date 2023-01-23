@@ -55,10 +55,6 @@ variable "vpc_id" {
   description = "(Required) VPC to deploy infrastructure to"
   type        = string
 }
-variable "vpc_cidr_region1" {
-  default     = "10.200.0.0/16"
-  description = "(Required) To create route for the peering connection"
-}
 variable "subnet_ids" {
   description = "(Required) List of subnets for instance distribution"
   type        = list(string)
@@ -99,7 +95,10 @@ variable "destination_cidr_block_for_overlay_ip_ERS" {
   default     = "192.168.10.12/32"
   description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
 }
-
+variable "vpc_cidr_region" {
+  default     = "10.200.0.0/16"
+  description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
+}
 # Operation System
 variable "ami_id" {
   description = "(Required) The AMI id for the underlying OS"
