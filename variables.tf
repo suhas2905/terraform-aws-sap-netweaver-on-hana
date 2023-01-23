@@ -55,9 +55,9 @@ variable "vpc_id" {
   description = "(Required) VPC to deploy infrastructure to"
   type        = string
 }
-variable "vpc_cidr_Region1" {
+variable "vpc_cidr_region1" {
   default     = "10.200.0.0/16"
-  description = (Required) To create route for the peering connection
+  description = "(Required) To create route for the peering connection"
 }
 variable "subnet_ids" {
   description = "(Required) List of subnets for instance distribution"
