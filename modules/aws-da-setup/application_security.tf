@@ -39,7 +39,7 @@ resource "aws_security_group_rule" "sap_application_https_in" {
   protocol    = "tcp"
   cidr_blocks = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
 }
-resource "aws_security_group_rule" "sap_application_https_in" {
+resource "aws_security_group_rule" "vpc_peering" {
   count = var.enabled ? 1 : 0
 
   security_group_id = aws_security_group.sap_application.*.id[0]
