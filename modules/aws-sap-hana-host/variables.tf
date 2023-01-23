@@ -68,6 +68,10 @@ variable "enable_ha" {
 variable "vpc_id" {
   description = "(Required) VPC to deploy HANA infrastructure to"
 }
+variable "vpc_cidr" {
+  description = "(Required) VPC cidr to create route for peering connection
+}
+
 
 variable "subnet_ids" {
   description = "(Required) List of subnets for instance distribution"
