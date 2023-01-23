@@ -33,5 +33,5 @@ resource "aws_route" "ha_route" {
 
   route_table_id         = aws_route_table.private_route_table.id
   destination_cidr_block = var.vpc_cidr_Region1
-  vpc_peering_connection_id = module.sap_landing_zone.my_pc_1
+  vpc_peering_connection_id = aws_vpc_peering_connection.my_pc_1.id
 }
