@@ -48,7 +48,7 @@ resource "aws_security_group_rule" "vpc_peering" {
   from_port   = "0"
   to_port     = "65535"
   protocol    = "tcp"
-  cidr_blocks = concat([var.vpc_cidr], var.customer_cidr_blocks_dr)
+  cidr_blocks = concat([var.vpc_cidr_region], var.customer_cidr_blocks_dr)
 }
 resource "aws_security_group_rule" "sap_application_tcp1128-1129_in" {
   count = var.enabled ? 1 : 0
