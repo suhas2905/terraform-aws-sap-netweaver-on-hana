@@ -148,9 +148,5 @@ variable "application_code" {
 variable "application_name" {
   description = "(Required) The name of the application being provisioned, ex. 'datamart', 'ecc', 's4hana', etc."
 }
-variable "vpc_cidr_region" {
-  default     = "10.200.0.0/16"
-  description = "(Optional when HA. Not used for single installation) The IP to add as an overlay IP on Route tables. Example: 192.168.10.10/32"
-}
 
 
