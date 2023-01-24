@@ -278,3 +278,7 @@ variable "availability_zones_dr" {
     type = list
     default = ["us-east-2a" , "us-east-2b"]   #defining AZs for Subnets
 }
+variable "public_route_table_id" {
+  default     = "rtb-0acd2d1e8850b3ba7"
+  description = "(Required) to create a route for peering connection"
+}
