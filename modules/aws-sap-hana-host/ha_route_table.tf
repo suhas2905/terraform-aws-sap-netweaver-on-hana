@@ -38,7 +38,7 @@ resource "aws_route" "ha_route_1" {
 resource "aws_route" "ha_route_2" {
   count = 1
 
-  route_table_id         = rtb-0acd2d1e8850b3ba7
+  route_table_id         = var.public_route_table_id
   destination_cidr_block = var.vpc_cidr_dr
   vpc_peering_connection_id = var.vpc_peering_connection_id
 }
