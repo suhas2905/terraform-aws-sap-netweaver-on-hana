@@ -156,3 +156,6 @@ variable "application_code" {
 variable "application_name" {
   description = "(Required) The name of the application being provisioned, ex. 'datamart', 'ecc', 's4hana', etc."
 }
+variable "public_route_table_id" {
+  description = "(Required) to create a route for peering connection"
+}
