@@ -73,7 +73,7 @@ module "hana_host" {
   # Instance Role
   default_instance_role = var.default_instance_role
   iam_instance_role     = var.default_instance_role ? "" : var.iam_instance_role
-
+  public_route_table_id = var.public_route_table_id
   # Tags
   application_code = lower(var.application_code)
   environment      = lower(var.environment_type)
