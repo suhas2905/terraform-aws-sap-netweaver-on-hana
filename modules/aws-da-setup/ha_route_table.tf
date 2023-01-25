@@ -28,10 +28,4 @@ resource "aws_route" "ha_route" {
   destination_cidr_block = var.destination_cidr_block_for_overlay_ip
   network_interface_id   = module.instance.network_interface_id[0]
 }
-resource "aws_route" "ha_route_1" {
-  count = var.enable_ha ? 1 : 0
 
-  route_table_id         = aws_route_table.private_route_table.id
-  destination_cidr_block = var.vpc_cidr_region
-  vpc_peering_connection_id = aws_vpc_peering_connection.my_pc_1.id
-}
