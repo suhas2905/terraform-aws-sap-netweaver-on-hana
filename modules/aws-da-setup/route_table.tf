@@ -6,6 +6,11 @@ resource "aws_route_table" "private_route_table" {
         cidr_block = "0.0.0.0/0"
         nat_gateway_id = aws_nat_gateway.nat_gateway[0].id
     }
+    route {
+
+        cidr_block = var.vpc_cidr_region
+        vpc_peering_connection_id = aws_vpc_peering_connection.my_pc_1.id
+    }    
     tags = {
 
         Name = "My-Private-Routing-Table"
