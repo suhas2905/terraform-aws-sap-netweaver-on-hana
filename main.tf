@@ -142,6 +142,7 @@ module "da_hana_host" {
   }
 
 }
+# required to accept peering connection 
 resource "aws_vpc_peering_connection_accepter" "peer_accepter" {
   vpc_peering_connection_id = module.da_hana_host.my_pc_1
   auto_accept               = true
