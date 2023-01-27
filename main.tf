@@ -133,7 +133,7 @@ module "da_hana_host" {
   
   # Landing_zone
   vpc_cidr                  = var.vpc_cidr_dr
-  subnets_cidr              = var.subnets_cidr_dr
+  private_subnets_cidr      = var.private_subnets_cidr_dr
   public_subnets_cidr       = var.public_subnets_cidr_dr
   availability_zones        = var.availability_zones_dr
 
