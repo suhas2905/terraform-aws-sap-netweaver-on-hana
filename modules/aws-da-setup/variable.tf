@@ -7,18 +7,18 @@ variable "vpc_cidr_region" {
   default     = ""
 }
 variable "private_subnets_cidr" {
-  description = "(Optional) KMS Key to be used for EBS volume encryption. If none is provisioned - volumes will not be encrypted"
+  description = "(Required) to create private subnets requires CIDR range"
   default     = ""
 }
 
 variable "public_subnets_cidr" {
-  description = "(Optional) KMS Key to be used for EBS volume encryption. If none is provisioned - volumes will not be encrypted"
+  description = "(Required) to create public subnets reuires CIDR range"
   default     = ""
 }
 
 
 variable "availability_zones" {
-  description = "(Optional) KMS Key to be used for EBS volume encryption. If none is provisioned - volumes will not be encrypted"
+  description = "(Required) to create subnets in diffrent AZ's"
   default     = ""
 }
 
