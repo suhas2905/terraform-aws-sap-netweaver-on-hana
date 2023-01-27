@@ -1,15 +1,25 @@
 variable "vpc_cidr" {
+  description = "(Required) VPC_CIDR range is required to create vpc"
+  default     = ""
 }
 variable "vpc_cidr_region" {
+  description = "(Required) VPC_CIDR_REGION is the VPC_CIDR of the region one(ex.us-east-1) to create route in route table for peering connection"
+  default     = ""
 }
-variable "subnets_cidr" {
+variable "private_subnets_cidr" {
+  description = "(Optional) KMS Key to be used for EBS volume encryption. If none is provisioned - volumes will not be encrypted"
+  default     = ""
 }
 
 variable "public_subnets_cidr" {
+  description = "(Optional) KMS Key to be used for EBS volume encryption. If none is provisioned - volumes will not be encrypted"
+  default     = ""
 }
 
 
 variable "availability_zones" {
+  description = "(Optional) KMS Key to be used for EBS volume encryption. If none is provisioned - volumes will not be encrypted"
+  default     = ""
 }
 
 variable "enabled" {
