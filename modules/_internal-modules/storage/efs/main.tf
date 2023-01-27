@@ -33,11 +33,3 @@ resource "aws_efs_mount_target" "main" {
     var.efs_security_group_id,
   ]
 }
-resource "aws_efs_replication_configuration" "main" {
-  count      = var.enabled ? 1 : 0
-  source_file_system_id = aws_efs_file_system.main.*.id[0]
-
-  destination {
-    region = "us-east-2"
-  }
-}
