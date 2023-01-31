@@ -266,7 +266,7 @@ variable "app_server_root_volume_size" {
 variable "vpc_cidr_dr" {
     default = "10.0.0.0/16"  #CIDR declaration for VPC
 }
-variable "subnets_cidr_dr" {
+variable "private_subnets_cidr_dr" {
     type = list
     default = ["10.0.1.0/24" , "10.0.2.0/24"] #CIDR declaration for 2 subnets 
 }
